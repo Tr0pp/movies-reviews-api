@@ -1,6 +1,8 @@
 package com.rest.restapi.services;
 
-import com.rest.restapi.models.TopStories;
+import com.rest.restapi.models.Critics.DataCritics;
+import com.rest.restapi.models.Reviews.DataReviews;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,18 +15,68 @@ public class DataService {
     @Value("${api.key}")
     private String apiKey;
 
-    public TopStories consumerAPI(String section){
-            RestTemplate template = new RestTemplate();
+    @Value("${api.host}")
+    private String host;
 
+    RestTemplate template = new RestTemplate();
+
+    public DataCritics criticsReviewer(String reviewer) {
             UriComponents uri = UriComponentsBuilder.newInstance()
                     .scheme("https")
-                    .host("api.nytimes.com")
-                    .path("svc/topstories/v2/"+section+".json")
+                    .host(host)
+                    .path("svc/movies/v2/critics/"+reviewer+".json")
                     .queryParam("api-key", apiKey)
                     .build();
 
-            ResponseEntity<TopStories> entity = template.getForEntity(uri.toUriString(), TopStories.class);
+            ResponseEntity<DataCritics> entity = template.getForEntity(uri.toUriString(), DataCritics.class);
 
-           return entity.getBody();
+            return entity.getBody();
+    }
+
+    public DataReviews typeReviews(
+            String type,
+            String offset,
+            String order
+    ) {
+        UriComponents uri = UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host(host)
+                .path("svc/movies/v2/reviews/"+type+".json")
+                .queryParam("offset", offset)
+                .queryParam("order", order)
+                .queryParam("api-key", apiKey)
+                .build();
+
+        ResponseEntity<DataReviews> entity = template.getForEntity(uri.toUriString(), DataReviews.class);
+
+        return entity.getBody();
+    }
+
+    public DataReviews searchReviews(
+            String criticsPick,
+            String offset,
+            String openingDate,
+            String order,
+            String publicationDate,
+            String reviewer,
+            String query
+    ) {
+        UriComponents uri = UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host(host)
+                .path("svc/movies/v2/reviews/search.json")
+                .queryParam("critics-pick", criticsPick)
+                .queryParam("offset", offset)
+                .queryParam("opening-date", openingDate)
+                .queryParam("order", order)
+                .queryParam("publication-date", publicationDate)
+                .queryParam("reviewer", reviewer)
+                .queryParam("query", query)
+                .queryParam("api-key", apiKey)
+                .build();
+
+        ResponseEntity<DataReviews> entity = template.getForEntity(uri.toUriString(), DataReviews.class);
+
+        return entity.getBody();
     }
 }

@@ -1,11 +1,11 @@
-package com.rest.restapi.models;
+package com.rest.restapi.models.Critics;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Multimedia {
+public class Resource {
     private String url;
     private String format;
     private int height;
@@ -15,4 +15,3 @@ public class Multimedia {
     private String caption;
     private String copyright;
 }
-
