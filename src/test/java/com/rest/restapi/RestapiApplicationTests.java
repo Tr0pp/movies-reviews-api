@@ -1,10 +1,10 @@
-package com.restapi.rottentomatoes;
+package com.rest.restapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RottenTomatoesApplicationTests {
+class RestapiApplicationTests {
 
 	@Test
 	void contextLoads() {

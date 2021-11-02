@@ -1,13 +1,13 @@
-package com.restapi.rottentomatoes;
+package com.rest.restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RottenTomatoesApplication {
+public class RestapiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RottenTomatoesApplication.class, args);
+		SpringApplication.run(RestapiApplication.class, args);
 	}
 
 }
