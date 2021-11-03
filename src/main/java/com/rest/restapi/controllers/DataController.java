@@ -1,12 +1,9 @@
 package com.rest.restapi.controllers;
 
-import com.rest.restapi.models.Reviews.DataReviews;
 import com.rest.restapi.services.DataService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/")
 public class DataController {
