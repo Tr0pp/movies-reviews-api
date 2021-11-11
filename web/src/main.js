@@ -15,7 +15,10 @@ Vue.prototype.$axios = axios.create({
   baseURL: 'http://localhost:8080'
 })
 
+export const nameReviewer = new Vue();
+
 const router = new VueRouter({
+  mode: 'history',
   routes: routesVue
 })
 

@@ -15,6 +15,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import Navbar from '../components/Navbar.vue'
 import Card from '../components/Card.vue'
+import {nameReviewer} from "../main";
 
 export default {
   name: 'Template',
@@ -24,18 +25,52 @@ export default {
   },
   data() {
     return {
-      moviesReviews: []
+      moviesReviews: [],
+      nameReviewer: '',
     }
   },
-  async created() {
-    await this.$axios(`all/20/by-publication-date`)
-        .then(res => {
-          res.data.results.map(r => {
-            if(r.multimedia !== null){
-              this.moviesReviews.push(r)
-            }
+  created() {
+    this.dadosPage()
+    nameReviewer.$on('name_reviewer', (res) => {
+      if(res !== undefined){
+        this.nameReviewer = res
+        this.dadosPage()
+      }
+    })
+  },
+  watch() {
+    nameReviewer.$on('name_reviewer', (res) => {
+      if(res !== undefined){
+        this.nameReviewer = res
+        this.$axios(res)
+            .then(res => {
+              res.data.results.map(r => {
+                if(r.multimedia !== null){
+                  this.moviesReviews.push(r)
+                }
+              })
+            })
+      }
+    })
+  },
+  methods: {
+    async dadosPage(){
+      let search
+
+      if(this.nameReviewer !== '') {
+        search = this.nameReviewer.toLowerCase()
+      } else {
+        search = 'all/10/by-publication-date'
+      }
+      await this.$axios(search)
+          .then(res => {
+            res.data.results.map(r => {
+              if(r.multimedia !== null){
+                this.moviesReviews.push(r)
+              }
+            })
           })
-        })
+    }
   }
 
 }
