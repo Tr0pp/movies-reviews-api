@@ -3,7 +3,7 @@ package com.rest.restapi.controllers;
 import com.rest.restapi.services.DataService;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = {"http://localhost:8081","http://localhost"})
 @RestController
 @RequestMapping("/")
 public class DataController {

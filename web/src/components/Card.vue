@@ -6,10 +6,12 @@
         img-alt="Image"
         img-top
         tag="article"
-        style="max-width: 10rem;"
+        style="max-width: 18rem; max-height: 30rem;"
         class="m-2 align-content-md-between float-start"
     >
-      <b-card-text>
+      <b-card-text
+          style="max-width: 60rem; max-height: 11rem;"
+      >
         {{sumaryShort}}
       </b-card-text>
 
@@ -27,9 +29,6 @@ export default {
       textCard: '',
       buttonCard: ''
     }
-  },
-  created() {
-    console.log(this.img)
   }
 }
 </script>

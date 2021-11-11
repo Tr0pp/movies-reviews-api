@@ -28,7 +28,7 @@ export default {
     }
   },
   async created() {
-    await this.$axios(`http://localhost:8080/all/20/by-publication-date`)
+    await this.$axios(`all/20/by-publication-date`)
         .then(res => {
           res.data.results.map(r => {
             if(r.multimedia !== null){
@@ -36,7 +36,6 @@ export default {
             }
           })
         })
-    console.log(this.moviesReviews)
   }
 
 }
