@@ -1,11 +1,14 @@
-import Home from "../components/Home";
-import MovieDetails from "../components/MovieDetails";
+import Home from "../components/pages/Home";
+import MovieDetails from "../components/pages/MovieDetails";
 
 let routes = [
-    { path: '/home',
+    {
+        name: 'home',
+        path: '/home',
         component: Home
     },
-    { name: 'movie',
+    {
+        name: 'movie',
         path: '/movie/:name',
         component: MovieDetails,
         props(route) {
