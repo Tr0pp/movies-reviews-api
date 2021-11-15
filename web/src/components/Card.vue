@@ -15,7 +15,9 @@
         {{sumaryShort}}
       </b-card-text>
 
-      <b-button href="#" variant="primary">Go somewhere</b-button>
+      <router-link :to="{name: 'movie', params: { name: allData.display_title, infoMovie: allData } }">
+        <b-button href="filme" variant="primary">Mais detalhes</b-button>
+      </router-link>
     </b-card>
   </div>
 </template>
@@ -23,7 +25,7 @@
 <script>
 export default {
   name: 'Card',
-  props: ['img', 'title', 'sumaryShort'],
+  props: ['img', 'title', 'sumaryShort', 'allData'],
   data(){
     return {
       textCard: '',

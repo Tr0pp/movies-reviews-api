@@ -7,6 +7,7 @@
           :title="item.display_title"
           :img="item.multimedia"
           :sumaryShort="item.summary_short"
+          :allData="item"
       />
     </div>
   </div>
@@ -15,7 +16,6 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import Navbar from '../components/Navbar.vue'
 import Card from '../components/Card.vue'
-import {nameReviewer} from "../main";
 
 export default {
   name: 'Template',
@@ -31,27 +31,12 @@ export default {
   },
   created() {
     this.dadosPage()
-    nameReviewer.$on('name_reviewer', (res) => {
-      if(res !== undefined){
-        this.nameReviewer = res
-        this.dadosPage()
-      }
-    })
-  },
-  watch() {
-    nameReviewer.$on('name_reviewer', (res) => {
-      if(res !== undefined){
-        this.nameReviewer = res
-        this.$axios(res)
-            .then(res => {
-              res.data.results.map(r => {
-                if(r.multimedia !== null){
-                  this.moviesReviews.push(r)
-                }
-              })
-            })
-      }
-    })
+    // nameReviewer.$on('name_reviewer', (res) => {
+    //   if(res !== undefined){
+    //     this.nameReviewer = res
+    //     this.dadosPage()
+    //   }
+    // })
   },
   methods: {
     async dadosPage(){

@@ -1,12 +1,16 @@
 import Home from "../components/Home";
-import Search from "../components/Search";
+import MovieDetails from "../components/MovieDetails";
 
 let routes = [
     { path: '/home',
         component: Home
     },
-    { path: '/search',
-        component: Search
+    { name: 'movie',
+        path: '/movie/:name',
+        component: MovieDetails,
+        props(route) {
+            return { infoMovie: route.query.infoMovie }
+        }
     },
     {
         path: '/',

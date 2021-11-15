@@ -6,6 +6,6 @@ import java.util.List;
 
 @Getter
 @Setter
-public class DataReviews {
-    private List<Object> results;
+public class DataReviews extends MovieReview {
+    private List<MovieReview> results;
 }
