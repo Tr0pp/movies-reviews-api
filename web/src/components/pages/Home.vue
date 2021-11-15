@@ -72,12 +72,6 @@ export default {
             })
           })
     },
-    // async dadosReviewers(){
-    //   await this.$axios(`all`)
-    //       .then(res => {
-    //         this.reviewersData = res.data.results
-    //       })
-    // },
     clearFilter(){
       this.search = ''
       this.selected = null

@@ -1,10 +1,8 @@
 package com.rest.restapi.services;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.rest.restapi.models.Critics.DataCritics;
 import com.rest.restapi.models.Reviews.DataReviews;
 import com.rest.restapi.models.Reviews.MovieReview;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,9 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.sql.Array;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service

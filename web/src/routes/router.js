@@ -3,6 +3,10 @@ import MovieDetails from "../components/pages/MovieDetails";
 
 let routes = [
     {
+        path: '/',
+        redirect: '/home'
+    },
+    {
         name: 'home',
         path: '/home',
         component: Home
@@ -15,10 +19,11 @@ let routes = [
             return { infoMovie: route.query.infoMovie }
         }
     },
-    {
-        path: '/',
-        redirect: '/home'
-    }
+    // {
+    //     name: 'reviewers',
+    //     path: '/reviewers',
+    //     component: Reviewers
+    // }
 ]
 
 export default routes
